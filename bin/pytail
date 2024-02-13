@@ -1,0 +1,23 @@
+import sys, os
+from pytail import tail
+from time import time
+from datetime import datetime
+if len(sys.argv) != 2:
+	print(f"Error, you have to specify the filename to tail...")
+	sys.exit(-1)
+script, file = sys.argv
+if not os.path.isfile(file):
+	print(f"Error, cannot find the file specified...")
+	sys.exit(-1)
+print(f"# Tailing file: {file}")
+start = time()
+print("#" * 30)
+lines = 0
+for line in tail(file):
+	print(f"{datetime.now()} :: {line}")
+	lines += 1
+print(f"#" * 30)
+total = round((time() - start),2)
+print(f"# Elapsed time: {total} second(s)!")
+print(f"# Speed: {round((lines / total),2)} lps (lines per second)")
+print("#" * 30)
