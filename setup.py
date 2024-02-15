@@ -28,6 +28,7 @@ setup(
     url = "",
     license = "MIT",
     packages=find_packages(),
+    python_requires='>=3.10.0',
     scripts=["bin/pytail"],
     classifiers= [
         "Programming Language :: Python :: 3.10",
