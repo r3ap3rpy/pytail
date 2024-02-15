@@ -25,7 +25,7 @@ setup(
     long_description_content_type = "text/markdown",
     author = "Szabó Dániel Ernő",
     author_email = "r3ap3rpy@gmail.com",
-    url = "",
+    url = "https://pypi.org/project/pytail-r3ap3rpy/",
     license = "MIT",
     packages=find_packages(),
     python_requires='>=3.10.0',

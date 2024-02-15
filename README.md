@@ -16,6 +16,26 @@ OR
 pip install pytail-r3ap3rpy
 ```
 
+## Usage
+
+Simply specify the file or filter to use the tool.
+
+``` bash
+╰─>$ pytail --file test.txt
+##############################
+# Tailing file: test.txt
+# Use <CTRL + C> to exit
+##############################
+2024-02-15 13:42:35.747232 :: line
+2024-02-15 13:42:40.425967 :: another
+2024-02-15 13:42:44.374841 :: yet another
+##############################
+# End of tailing!
+# Elapsed time: 15.93 second(s)!
+# Speed: 0.19 lps (lines per second)
+##############################
+```
+
 ## Notes
 
 If you install it in a virtualenv it will just work fine!
