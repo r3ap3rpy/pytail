@@ -13,7 +13,7 @@ python setup.py install
 OR
 
 ``` python
-pip install pytail
+pip install pytail-r3ap3rpy
 ```
 
 There are two arguments:
