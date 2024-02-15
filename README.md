@@ -21,6 +21,7 @@ There are two arguments:
 - filter (Optional, allows you to get only lines that contain the filter, case-insensitive!)
 
 ## ToDo
+- [ ] Add automatic version bump to workflow
 - [x] Add permission check to see if user has the right to read the file!
 - [x] Change it to use **argparse**
 - [x] Add versioning
