@@ -19,7 +19,7 @@ def get_version(rel_path):
     else:
         raise RuntimeError("Unable to find version string.")
 setup(
-    name="pytail",
+    name="pytail-r3ap3rpy",
     version = get_version('pytail/__init__.py'),
     long_description = readme(),
     long_description_content_type = "text/markdown",
