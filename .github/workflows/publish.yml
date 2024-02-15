@@ -13,7 +13,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-          github_token: ${{ secrets.PAT }}
       - run: |
           .github/scripts/version.py
           git config user.name r3ap3rpy
@@ -21,6 +20,8 @@ jobs:
           git add .
           git commit -m "Version bumped!"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
       #    python3 -m pip install --upgrade build && python3 -m build
       #- name: Publish package
       #  uses: pypa/gh-action-pypi-publish@release/v1
