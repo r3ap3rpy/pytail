@@ -25,3 +25,4 @@ There are two arguments:
 - [x] Change it to use **argparse**
 - [x] Add versioning
 - [x] Add switches
+
