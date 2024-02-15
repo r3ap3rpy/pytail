@@ -5,7 +5,7 @@ This is a repository that holds my implementation of the **tail -f** command.
 In order to install it you can use either of these two ways.
 
 ``` bash
-git clone
+git clone https://github.com/r3ap3rpy/pytail
 cd pytail
 python setup.py install
 ```
