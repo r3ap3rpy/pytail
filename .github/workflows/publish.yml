@@ -6,7 +6,7 @@ on:
   release:
     types: [published]
 jobs:
-  pypi:
+  bumpVersion:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,9 +20,15 @@ jobs:
           git add .
           git commit -m "Version bumped!"
           git push
-      #    python3 -m pip install --upgrade build && python3 -m build
-      #- name: Publish package
-      #  uses: pypa/gh-action-pypi-publish@release/v1
-      #  with:
-      #    password: ${{ secrets.PYPI_TOKEN }}
-      #    verify-metadata: false
+  buldAndPublish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with fetch-depth: 0
+      - run: python3 -m pip install --upgrade build && python3 -m build
+      - name: Publish package
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_TOKEN }}
+          verify-metadata: false
