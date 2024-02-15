@@ -22,6 +22,7 @@ setup(
     name="pytail",
     version = get_version('pytail/__init__.py'),
     description = readme(),
+    long_description_content_type = "text/markdown",
     author = "Szabó Dániel Ernő",
     author_email = "r3ap3rpy@gmail.com",
     url = "",
