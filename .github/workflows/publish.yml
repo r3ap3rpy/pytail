@@ -20,8 +20,6 @@ jobs:
           git add .
           git commit -m "Version bumped!"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
       #    python3 -m pip install --upgrade build && python3 -m build
       #- name: Publish package
       #  uses: pypa/gh-action-pypi-publish@release/v1
