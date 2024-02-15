@@ -1,22 +1,33 @@
-import sys, os
-from pytail import tail
+from argparse import ArgumentParser
 from time import time
 from datetime import datetime
-if len(sys.argv) != 2:
-	print(f"Error, you have to specify the filename to tail...")
-	sys.exit(-1)
-script, file = sys.argv
-if not os.path.isfile(file):
-	print(f"Error, cannot find the file specified...")
-	sys.exit(-1)
-print(f"# Tailing file: {file}")
-start = time()
+from pytail import tail
+from os.path import isfile
+from sys import exit
+from argparse import ArgumentParser
+
+parser = ArgumentParser(description = "This is the #tail -f# equivalent of python!")
+parser.add_argument('--file', '-f', help = "The file to tail!", type = str, required = True)
+parser.add_argument('--filter', '-i', help = "The filter (case-insensitive) used to match the lines you want to see!", type = str, required = False)
+args = parser.parse_args()
+
+if not isfile(args.file):
+	print(f"Cannot find {args.file}")
+	exit(-1)
+print(args)
 print("#" * 30)
+print(f"# Tailing file: {args.file}")
+if args.filter:
+	print(f"# Using filter: {args.filter}")
+print("# Use <CTRL + C> to exit")
+print("#" * 30)
+start = time()
+
 lines = 0
-for line in tail(file):
-	print(f"{datetime.now()} :: {line}")
+for file in tail(args.file, args.filter):
+	print(f"{datetime.now()} :: {file}")
 	lines += 1
-print(f"#" * 30)
+
 total = round((time() - start),2)
 print(f"# Elapsed time: {total} second(s)!")
 print(f"# Speed: {round((lines / total),2)} lps (lines per second)")
