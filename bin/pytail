@@ -5,6 +5,7 @@ from pytail import tail
 from os.path import isfile
 from sys import exit
 from argparse import ArgumentParser
+from errno import EACCES
 
 parser = ArgumentParser(description = "This is the #tail -f# equivalent of python!")
 parser.add_argument('--file', '-f', help = "The file to tail!", type = str, required = True)
@@ -14,13 +15,16 @@ args = parser.parse_args()
 if not isfile(args.file):
 	print(f"Cannot find {args.file}")
 	exit(-1)
-print(args)
+
 print("#" * 30)
 print(f"# Tailing file: {args.file}")
+
 if args.filter:
 	print(f"# Using filter: {args.filter}")
+
 print("# Use <CTRL + C> to exit")
 print("#" * 30)
+
 start = time()
 
 lines = 0
