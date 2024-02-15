@@ -47,6 +47,11 @@ On linux systems if you install the module with **sudo** it will work fine, if y
 ``` bash
 export PATH="$HOME/.local/bin:$PATH"
 ```
+On windows in case the **pytail** executable is not available after install you have to use the absolute path to use it.
+
+``` bash
+ python C:\Python\Python310\Scripts\pytail --file test.txt
+```
 
 There are two arguments:
 - file (The file you want to tail!)
